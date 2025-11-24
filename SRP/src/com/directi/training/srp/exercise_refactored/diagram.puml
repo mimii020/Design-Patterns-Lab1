@@ -1,0 +1,30 @@
+@startuml
+class Car {
+ id : String
+ model : String
+ brand : String
+
+ getId()
+ getModel()
+ getBrand()
+}
+
+class CarManager {
+ getCarsNames()
+ getBestCar()
+}
+
+class InMemoryDb {
+ _carsDb : List<Car>
+ findAll()
+ findById(id : String)
+}
+
+interface CarRepository {
+ findAll();
+ findById(id : String);
+}
+CarManager ..> CarRepository : uses
+CarManager ..> Car
+InMemoryDb ..|> CarRepository
+@enduml

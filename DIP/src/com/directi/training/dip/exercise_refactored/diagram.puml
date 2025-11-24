@@ -1,0 +1,33 @@
+@startuml
+
+class EncodingModule {
+ encodeWithFiles(inputFile : String, outputFile : String)
+ encodeBasedOnNetworkAndDatabase()
+}
+
+class EncodingModuleClient {
+ encodeFile(inputFile : String, outputFile : String)
+ encodeDb()
+}
+
+interface EncodingModuleInterface {
+ encodeWithFiles(inputFile : String, outputFile : String)
+ encodeBasedOnNetworkAndDatabase()
+}
+
+class MyDatabase {
+ private static _data : Map<Integer, String>
+ private static _count : int
+ write(inputString : String)
+}
+
+
+EncodingModule ..|> EncodingModuleInterface
+
+
+EncodingModuleClient --> EncodingModuleInterface
+EncodingModule --> MyDatabase 
+
+
+
+@enduml

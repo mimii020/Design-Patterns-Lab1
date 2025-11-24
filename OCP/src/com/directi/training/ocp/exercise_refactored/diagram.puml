@@ -1,0 +1,31 @@
+@startuml
+abstract class ResourceAllocator {
+   allocate();
+   free(id : int);
+}
+
+class ResourceAllocatorService {
+ allocate()
+ free(resourceId : int)
+}
+
+class SpaceAllocator {
+ allocate()
+ free(resourceId : int)
+ findFreeSpaceSlot()
+ markSpaceSlotBusy(id : int)
+ markSpaceSlotFree(id : int)
+}
+
+class TimeAllocator {
+ allocate()
+ free(resourceId : int)
+ findFreeTimeSlot()
+ markTimeSlotBusy(id : int)
+ markTimeSlotFree(id : int)
+}
+
+SpaceAllocator ..|> ResourceAllocator
+TimeAllocator ..|> ResourceAllocator
+ResourceAllocatorService --> ResourceAllocator
+@enduml

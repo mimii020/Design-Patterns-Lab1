@@ -1,0 +1,35 @@
+@startuml
+
+class Duck {
+ quack()
+ swim()
+}
+
+class ElectronicDuck {
+ private _on : bool
+ quack()
+ swim()
+ turnOn()
+ turnOff()
+}
+
+class Pool{
+ run()
+ quack(quackers : List<Quackable>)
+ swim(swimmers : List<Swimmable>)
+}
+
+interface Quackable {
+ quack()
+}
+
+interface Swimmable {
+ swim()
+}
+Duck ..|> Quackable
+Duck ..|> Swimmable 
+ElectronicDuck ..|> Quackable
+ElectronicDuck ..|> Swimmable
+Pool --> Duck
+Pool --> ElectronicDuck 
+@enduml
